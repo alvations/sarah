@@ -44,7 +44,7 @@ test_filename = 'test.txt' # source language, i.e. EN
 gold_filename = 'gold.txt' # target language, i.e. DE
 
 # Loads the trained model, choose the 5th epoch.
-tranlator = Seq2Seq.load(model_directory, epoch=5)
+translator = Seq2Seq.load(model_directory, epoch=5)
 
 # Actual translating...
 with open(test_filename) as test_fin:
@@ -61,6 +61,6 @@ with open(gold_filename) as gold_fin:
     references = [[line] for line in gold_fin]
 
 with open(test_filename) as test_fin:
-    translations = ranslator.decode_sents(test_fin)
+    translations = translator.decode_sents(test_fin)
 
 print('BLEU:', bleu(references, translations)) # supports multi-references by default.
