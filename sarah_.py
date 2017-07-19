@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from sarah import ParallelData, Seq2Seq, L2Regularizer, Adam, Trainer
-from sarah import load_model, bleu
+from sarah import bleu
 
 # The input files.
 src_filename = 'en.txt'
