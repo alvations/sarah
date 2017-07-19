@@ -58,9 +58,9 @@ with open(test_filename) as test_fin:
 
 # Computing BLEU.
 with open(gold_filename) as gold_fin:
-    references = [line for line in gold_fin]
+    references = [[line] for line in gold_fin]
 
 with open(test_filename) as test_fin:
     translations = ranslator.decode_sents(test_fin)
 
-print('BLEU:', bleu([references], translations))
+print('BLEU:', bleu(references, translations)) # supports multi-references by default.
