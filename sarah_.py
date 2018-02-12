@@ -9,13 +9,17 @@ trg_filename = 'de.txt'
 # Place to save the model.
 model_directory = 'sarah_en-de/'
 
-with open(src_filename) as src_fin:
-    with open(trg_filename) as trg_fin:
-        data = ParallelData(source=src_fin,
-                            target=trg_fin,
-                            src_vocab_size=100000,
-                            trg_vocab_size=100000,
-                            dict_saveto=model_directory)
+
+data = ParallelData(source=src_filename,
+                    target=trg_filename,
+                    src_vocab_size=100000,
+                    trg_vocab_size=100000)
+
+data.save(model_directory)
+
+# Or when loading data, use:
+##ParallelData(loadfrom=model_directory)
+
 # Define the architecture.
 architecture = Seq2Seq(data,
                        encoder_size=512,
